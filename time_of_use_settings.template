@@ -1,0 +1,70 @@
+{
+  "tou_settings": {
+    "tariff_content": {
+      "daily_charges": [{ "name": "Charge", "amount": 0 }],
+      "demand_charges": { "ALL": { "ALL": 0 }, "Summer": {}, "Winter": {} },
+      "utility": "Agile Octopus",
+      "energy_charges": {
+        "ALL": { "ALL": 0 },
+        "Summer": {
+          "SUPER_OFF_PEAK": $SUPER_OFF_PEAK, "OFF_PEAK": $OFF_PEAK, "MID_PEAK": $MID_PEAK, "ON_PEAK": $TODAY_PEAK
+        },
+        "Winter": {
+          "SUPER_OFF_PEAK": $SUPER_OFF_PEAK, "OFF_PEAK": $OFF_PEAK, "MID_PEAK": $MID_PEAK, "ON_PEAK": $TOMORROW_PEAK
+        }
+      },
+      "name": "Agile Octopus",
+      "seasons": {
+        "Summer": {
+          "fromMonth": 1,
+          "fromDay": 1,
+          "toDay": $TODAY_DAY,
+          "toMonth": $TODAY_MONTH,
+          "tou_periods": {
+$TODAYS_PERIODS
+        }
+        },
+        "Winter": { 
+          "fromMonth": $TOMORROW_MONTH,
+          "fromDay": $TOMORROW_DAY,
+          "toDay": 31,
+          "toMonth": 12,
+          "tou_periods": {
+$PERIODS
+        }
+
+        }
+      },
+      "sell_tariff": {
+        "daily_charges": [{ "name": "Charge", "amount": 0 }],
+        "demand_charges": { "ALL": { "ALL": 0 }, "Summer": {}, "Winter": {} },
+        "utility": "Agile Octopus",
+        "energy_charges": {
+          "ALL": { "ALL": 0 },
+          "Summer": {"SUPER_OFF_PEAK": 0.15, "OFF_PEAK": 0.15, "MID_PEAK": 0.15, "ON_PEAK": 0.15},
+          "Winter": {}
+        },
+        "name": "Agile Octopus Import",
+        "seasons": {
+          "Summer": {
+            "fromMonth": 1,
+            "fromDay": 1,
+            "toDay": 31,
+            "toMonth": 12,
+            "tou_periods": { 
+              "MID_PEAK": [{
+                "toMinute": 0,
+                "toDayOfWeek": 6,
+                "toHour": 23,
+                "fromHour": 0,
+                "fromMinute": 0,
+                "fromDayOfWeek": 0
+              }]
+          },
+          "Winter": { "tou_periods": {} }
+        }
+      }
+    }
+  }
+}
+  }
